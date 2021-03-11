@@ -502,10 +502,10 @@ int main(int argc, char *argv[])
 			}
 		} else if (strcmp(&argv[i][1], "-info") == 0) {
 			printf(_("maximum printing width for this tape is %ipx\n"), tape_width);
-			printf("media type = %02x\n", ptdev->status->media_type);
+			printf("media type = %s\n", ptouch_media_type(ptdev->status->media_type));
 			printf("media width = %d mm\n", ptdev->status->media_width);
-			printf("tape color = %02x\n", ptdev->status->tape_color);
-			printf("text color = %02x\n", ptdev->status->text_color);
+			printf("tape color = %s\n", ptouch_tape_color(ptdev->status->tape_color));
+			printf("text color = %s\n", ptouch_tape_color(ptdev->status->text_color));
 			printf("error = %04x\n", ptdev->status->error);
 			exit(0);
 		} else if (strcmp(&argv[i][1], "-image") == 0) {

@@ -342,3 +342,57 @@ void ptouch_list_supported()
 	}
 	return;
 }
+
+char *ptouch_media_type(unsigned int media_type_id)
+{
+  static char buffer[32];
+  switch (media_type_id) {
+  case 0x00: return("no media");
+  case 0x01: return("laminated tape");
+  case 0x03: return("non-laminated tape");
+  case 0x11: return("heat-shrink tube");
+  case 0xFF: return("incompatible tape");
+  }
+  sprintf(buffer,"unknown %02x", media_type_id);
+  return(buffer);
+}
+
+char *ptouch_tape_color(unsigned int color_id)
+{
+  static char buffer[32];
+  
+  switch(color_id) {
+  case 0x01: return("white");
+  case 0x02: return("other");
+  case 0x03: return("clear");
+  case 0x04: return("red");
+  case 0x05: return("blue");
+  case 0x06: return("yellow");
+  case 0x07: return("green");
+  case 0x08: return("black");
+  case 0x09: return("clear(white text)");
+  case 0x0a: return("gold");
+  case 0x20: return("matte white");
+  case 0x21: return("matte clear");
+  case 0x22: return("matte silver");
+  case 0x23: return("satin Gold");
+  case 0x30: return("blue(D)");
+  case 0x31: return("red(D)");
+  case 0x40: return("fluorescent orange");
+  case 0x41: return("fluorescent yellow");
+  case 0x50: return("berry pink(S)");
+  case 0x51: return("light gray(S)");
+  case 0x52: return("lime green(S)");
+  case 0x60: return("yellow(F)");
+  case 0x61: return("pink(F)");
+  case 0x62: return("blue(F)");
+  case 0x70: return("white(heat-shrink tube)");
+  case 0x90: return("white(flex. ID)");
+  case 0x91: return("yellow(flex. ID)");
+  case 0xF0: return("clearning");
+  case 0xF1: return("stencil");
+  case 0xFF: return("incompatible");
+  }
+  sprintf(buffer,"unknown color %02x", color_id);
+  return(buffer);
+}
