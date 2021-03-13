@@ -28,7 +28,7 @@
 #include <time.h>	/* nanosleep(), struct timespec */
 #include "config.h"
 #include "gettext.h"	/* gettext(), ngettext() */
-#include "ptouch.h"
+#include "libptouch.h"
 
 #define _(s) gettext(s)
 
